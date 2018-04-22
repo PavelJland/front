@@ -11,26 +11,36 @@
 				<br>
 
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="images/img-01.png" alt="IMG">
+					<img src="images/register.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" @submit.prevent="login">
+				<form class="login100-form validate-form" @submit.prevent="register">
+
+          
 					<span class="login100-form-title">
-						PrivateKey Login
+						Register staff
 					</span>
 
 
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input v-model="secretKey" class="input100" tyape="password" name="pass" placeholder="PrivatKey" required>
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-					</div>
+              <div class="wrap-input100 validate-input">
+                        <input v-model="name" class="input100" type="text" name="name" placeholder="Name">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" >
+                        <input v-model="role" class="input100" type="text" name="role" placeholder="Role">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-id-card-o " aria-hidden="true"></i>
+                        </span>
+                    </div>
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							Login
+							Register
 						</button>
 					</div>
 
@@ -82,9 +92,9 @@
           </tabs>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <modal :visible="isModalVisible" title="Successful registration" action-btn="Log In" @close="closeModal" @submit="proceed">
+    <modal :visible="isModalVisible" title="Successful registration" action-btn="Send to Email" @close="closeModal" @submit="proceed">
       <div class="alert alert-warning" role="alert">Save the secret key in a safe place. You will need it to log in to the demo next time.</div>
       <div class="form-group">
         <label>Secret key:</label>
@@ -92,7 +102,7 @@
       </div>
     </modal>
 
- -->
+
     
   </div> 
 </template>

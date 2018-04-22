@@ -6,7 +6,7 @@ const NETWORK_ID = 0;
 const PROTOCOL_VERSION = 0;
 const SERVICE_ID = 521;
 const CREATE_USER_TX_ID = 0;
-const MAKE_OWL_TX_ID = 1;
+const MAKE_DETAIL = 1;
 const ISSUE_TX_ID = 2;
 const CREATE_ORDER_TX_ID = 3;
 const ACCEPT_ORDER_TX_ID = 4;
@@ -55,6 +55,7 @@ function waitForAcceptance(response) {
   let attempt = ATTEMPTS;
 
   if (response.data.debug) {
+    console.log();
     throw new Error(response.data.description);
   }
 
@@ -117,18 +118,18 @@ module.exports = {
           .then(() => keyPair);
       },
 
-      makeOwl: (keyPair, name, father, mother) => {
-        // Describe transaction to make new owl
-        const TxMakeOwl = Exonum.newMessage({
+      makeDetail: (keyPair, role, serial, kind) => {
+        // Делаем действие с деталью
+        const TxmakeDetail = Exonum.newMessage({
           network_id: NETWORK_ID,
           protocol_version: PROTOCOL_VERSION,
           service_id: SERVICE_ID,
-          message_id: MAKE_OWL_TX_ID,
+          message_id: MAKE_DETAIL,
           fields: [
             { name: "public_key", type: Exonum.PublicKey },
-            { name: "name", type: Exonum.String },
-            { name: "father_id", type: Exonum.Hash },
-            { name: "mother_id", type: Exonum.Hash },
+            { name: "kind", type: Exonum.String },
+            { name: "role", type: Exonum.String },
+            { name: "serial_number", type: Exonum.String },
             { name: "seed", type: SystemTime }
           ]
         });
@@ -136,15 +137,14 @@ module.exports = {
         // Transaction data
         const data = {
           public_key: keyPair.publicKey,
-          name: name,
+          kind: kind,
           role: role,
-          father_id: father,
-          mother_id: mother,
+          serial_number: serial,
           seed: getSystemTime()
         };
 
         // Sign transaction with user's secret key
-        const signature = TxMakeOwl.sign(keyPair.secretKey, data);
+        const signature = TxmakeDetail.sign(keyPair.secretKey, data);
 
         // Send transaction into blockchain
         return axios
@@ -152,7 +152,7 @@ module.exports = {
             network_id: NETWORK_ID,
             protocol_version: PROTOCOL_VERSION,
             service_id: SERVICE_ID,
-            message_id: MAKE_OWL_TX_ID,
+            message_id: MAKE_DETAIL,
             body: data,
             signature: signature
           })
@@ -278,8 +278,8 @@ module.exports = {
         return axios
           .get(`/api/services/cryptoowls/v1/user/${publicKey}`)
           .then(response => {
-            if (response.data === "User not found") {
-              throw new Error(response.data);
+            if (response.data.error) {
+              throw new Error("User not found");
             }
             return response.data;
           });

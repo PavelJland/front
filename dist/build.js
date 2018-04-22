@@ -35899,23 +35899,28 @@ module.exports = index;
 
 }).call(this,require('_process'))
 },{"_process":50}],67:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("input:invalid {\n  box-shadow: none;\n}\n\ncode, .break-word {\n  word-break: break-all;\n  word-wrap: break-word;\n}")
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("input:invalid {\n  box-shadow: none;\n}\n\ncode,\n.break-word {\n  word-break: break-all;\n  word-wrap: break-word;\n}")
 ;(function(){
-'use strict';
+"use strict";
 
-var Navbar = require('./components/Navbar.vue');
+var Navbar = require("./components/Navbar.vue");
 
 module.exports = {
   components: {
     Navbar: Navbar
+  },
+  computed: {
+    background: function background() {
+      return require("./bgs/" + this.id + ".jpg");
+    }
   }
 };
 })()
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('navbar'),_vm._v(" "),_c('router-view'),_vm._v(" "),_vm._m(0)],1)}
-__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('footer',{staticClass:"pb-4 hr"},[_c('hr',{staticClass:"mt-5 mb-5"}),_vm._v(" "),_c('div',{staticClass:"container"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-sm-12"},[_c('img',{staticClass:"float-left mt-sm-1 mr-3",attrs:{"src":"images/exonum.png","width":"41","height":"36","alt":""}}),_vm._v(" "),_c('ul',{staticClass:"list-unstyled"},[_c('li',[_vm._v("Source code on "),_c('a',{attrs:{"href":"https://github.com/exonum/cryptocurrency-advanced","target":"_blank"}},[_vm._v("GitHub")])]),_vm._v(" "),_c('li',[_vm._v("Works on "),_c('a',{attrs:{"href":"https://exonum.com/doc/","target":"_blank"}},[_vm._v("Exonum")])])])])])])])}]
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('router-view')],1)}
+__vue__options__.staticRenderFns = []
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -35978,7 +35983,7 @@ new _vue2.default({
   }
 });
 
-},{"./App.vue":67,"./plugins/blockchain":87,"./plugins/moment":88,"./plugins/notify":89,"./plugins/svg":90,"./router":91,"./store":92,"vue":64}],69:[function(require,module,exports){
+},{"./App.vue":67,"./plugins/blockchain":88,"./plugins/moment":89,"./plugins/notify":90,"./plugins/svg":91,"./router":92,"./store":93,"vue":64}],69:[function(require,module,exports){
 ;(function(){
 'use strict';
 
@@ -36463,8 +36468,8 @@ module.exports = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"container mt-5"},[_c('div',{staticClass:"row justify-content-sm-center"},[_c('div',{staticClass:"col-md-6 col-md-offset-3"},[_c('h1',{staticClass:"mt-5 mb-4"},[_vm._v("Authorization")]),_vm._v(" "),_c('tabs',[_c('tab',{attrs:{"is-active":true,"title":"Registration"}},[_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.register($event)}}},[_c('div',{staticClass:"form-group"},[_c('label',{staticClass:"control-label"},[_vm._v("Name:")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.name),expression:"name"}],staticClass:"form-control",attrs:{"type":"text","placeholder":"Enter name","maxlength":"260","required":""},domProps:{"value":(_vm.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.name=$event.target.value}}}),_vm._v(" "),_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.role),expression:"role"}],on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.role=$event.target.multiple ? $$selectedVal : $$selectedVal[0]}}},[_c('option',{attrs:{"value":"producer"}},[_vm._v("Producer")]),_vm._v(" "),_c('option',{attrs:{"value":"certifier"}},[_vm._v("Certifier")]),_vm._v(" "),_c('option',{attrs:{"value":"trader"}},[_vm._v("Trader")]),_vm._v(" "),_c('option',{attrs:{"value":"customer"}},[_vm._v("Customer")])])]),_vm._v(" "),_c('button',{staticClass:"btn btn-lg btn-block btn-primary",attrs:{"type":"submit"}},[_vm._v("Register")])])]),_vm._v(" "),_c('tab',{attrs:{"title":"Log In"}},[_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.login($event)}}},[_c('div',{staticClass:"form-group"},[_c('label',{staticClass:"control-label"},[_vm._v("Secret key:")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.secretKey),expression:"secretKey"}],staticClass:"form-control",attrs:{"type":"text","placeholder":"Enter secret key","required":""},domProps:{"value":(_vm.secretKey)},on:{"input":function($event){if($event.target.composing){ return; }_vm.secretKey=$event.target.value}}})]),_vm._v(" "),_c('button',{staticClass:"btn btn-lg btn-block btn-primary",attrs:{"type":"submit"}},[_vm._v("Log In")])])])],1)],1)])]),_vm._v(" "),_c('modal',{attrs:{"visible":_vm.isModalVisible,"title":"Successful registration","action-btn":"Log In"},on:{"close":_vm.closeModal,"submit":_vm.proceed}},[_c('div',{staticClass:"alert alert-warning",attrs:{"role":"alert"}},[_vm._v("Save the secret key in a safe place. You will need it to log in to the demo next time.")]),_vm._v(" "),_c('div',{staticClass:"form-group"},[_c('label',[_vm._v("Secret key:")]),_vm._v(" "),_c('div',[_c('code',[_vm._v(_vm._s(_vm.keyPair.secretKey))])])])]),_vm._v(" "),_c('spinner',{attrs:{"visible":_vm.isSpinnerVisible}})],1)}
-__vue__options__.staticRenderFns = []
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"limiter"},[_c('div',{staticClass:"container-login100"},[_c('div',{staticClass:"wrap-login100",staticStyle:{"text-align":"center","position":"relative"}},[_vm._m(0),_vm._v(" "),_c('br'),_vm._v(" "),_vm._m(1),_vm._v(" "),_c('form',{staticClass:"login100-form validate-form",on:{"submit":function($event){$event.preventDefault();return _vm.login($event)}}},[_c('span',{staticClass:"login100-form-title"},[_vm._v("\n\t\t\t\t\t\tPrivateKey Login\n\t\t\t\t\t")]),_vm._v(" "),_c('div',{staticClass:"wrap-input100 validate-input",attrs:{"data-validate":"Password is required"}},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.secretKey),expression:"secretKey"}],staticClass:"input100",attrs:{"tyape":"password","name":"pass","placeholder":"PrivatKey","required":""},domProps:{"value":(_vm.secretKey)},on:{"input":function($event){if($event.target.composing){ return; }_vm.secretKey=$event.target.value}}}),_vm._v(" "),_c('span',{staticClass:"focus-input100"}),_vm._v(" "),_vm._m(2)]),_vm._v(" "),_vm._m(3)])])])]),_vm._v(" "),_c('spinner',{attrs:{"visible":_vm.isSpinnerVisible}})],1)}
+__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"width":"80%","display":"block","position":"absolute","top":"80px","z-index":"400","margin-top":"-20px"}},[_c('img',{staticStyle:{"width":"400px","max-width":"100%"},attrs:{"src":"images/logo.png","alt":"","srcset":""}})])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"login100-pic js-tilt",attrs:{"data-tilt":""}},[_c('img',{attrs:{"src":"images/img-01.png","alt":"IMG"}})])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{staticClass:"symbol-input100"},[_c('i',{staticClass:"fa fa-lock",attrs:{"aria-hidden":"true"}})])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container-login100-form-btn"},[_c('button',{staticClass:"login100-form-btn"},[_vm._v("\n\t\t\t\t\t\t\tLogin\n\t\t\t\t\t\t")])])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -36692,11 +36697,11 @@ module.exports = {
         this.$notify("error", error.toString());
       }
     },
-    makeOwl: async function makeOwl() {
+    makeDetail: async function makeDetail() {
       this.isSpinnerVisible = true;
 
       try {
-        await this.$blockchain.makeOwl(this.keyPair, this.name, this.mother, this.father);
+        await this.$blockchain.makeDetail(this.keyPair, this.user.role, this.serial, this.kind);
         this.isSpinnerVisible = false;
         this.$notify("success", "Transaction accepted");
         this.loadUser();
@@ -36730,7 +36735,7 @@ module.exports = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"container mt-5"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-sm-12"},[_c('h1',[_vm._v("My cabinet")]),_vm._v(" "),_c('div',{staticClass:"row mt-5"},[_c('div',{staticClass:"col-sm-6"},[_c('h2',[_vm._v("My profile")]),_vm._v(" "),_c('user-summary',{staticClass:"mt-3",attrs:{"user":_vm.user}}),_vm._v(" "),_c('button',{staticClass:"btn btn-lg btn-block btn-primary mt-3",on:{"click":function($event){$event.preventDefault();return _vm.issue($event)}}},[_vm._v("Issue funds")])],1),_vm._v(" "),_c('div',{staticClass:"col-sm-6"},[_c('h2',[_vm._v("Incubator")]),_vm._v(" "),_c('form',{staticClass:"mt-3",on:{"submit":function($event){$event.preventDefault();return _vm.makeOwl($event)}}},[_c('div',{staticClass:"form-group"},[_c('label',{staticClass:"control-label"},[_vm._v("Name:")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.name),expression:"name"}],staticClass:"form-control",attrs:{"type":"text","placeholder":"Enter name","maxlength":"260","required":""},domProps:{"value":(_vm.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.name=$event.target.value}}})]),_vm._v(" "),_c('div',{staticClass:"form-group"},[_c('label',{staticClass:"control-label"},[_vm._v("Father:")]),_vm._v(" "),_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.father),expression:"father"}],staticClass:"form-control",attrs:{"required":""},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.father=$event.target.multiple ? $$selectedVal : $$selectedVal[0]}}},_vm._l((_vm.owls),function(owl){return _c('option',{staticClass:"form-control",domProps:{"value":_vm.$blockchain.getOwlHash(owl.owl)}},[_vm._v(_vm._s(owl.owl.name))])}))]),_vm._v(" "),_c('div',{staticClass:"form-group"},[_c('label',{staticClass:"control-label"},[_vm._v("Mother:")]),_vm._v(" "),_c('select',{directives:[{name:"model",rawName:"v-model",value:(_vm.mother),expression:"mother"}],staticClass:"form-control",attrs:{"required":""},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.mother=$event.target.multiple ? $$selectedVal : $$selectedVal[0]}}},_vm._l((_vm.owls),function(owl){return _c('option',{staticClass:"form-control",domProps:{"value":_vm.$blockchain.getOwlHash(owl.owl)}},[_vm._v(_vm._s(owl.owl.name))])}))]),_vm._v(" "),_c('button',{staticClass:"btn btn-lg btn-block btn-primary",attrs:{"type":"submit"}},[_vm._v("Incubate")])])])]),_vm._v(" "),_c('h2',{staticClass:"mt-5"},[_vm._v("My owls")]),_vm._v(" "),_c('owl-list',{attrs:{"owls":_vm.owls}}),_vm._v(" "),_c('h2',{staticClass:"mt-5"},[_vm._v("My orders")]),_vm._v(" "),_c('ul',{staticClass:"list-group mt-3"},[_vm._m(0),_vm._v(" "),_vm._l((_vm.orders),function(order){return _c('li',{staticClass:"list-group-item"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-sm-3"},[_c('code',[_c('router-link',{staticClass:"break-word",attrs:{"to":{ name: 'owl', params: { hash: order.owl_id } }}},[_vm._v(_vm._s(order.owl_id))])],1)]),_vm._v(" "),_c('div',{staticClass:"col-sm-3"},[_c('code',[_c('router-link',{staticClass:"break-word",attrs:{"to":{ name: 'user', params: { publicKey: order.public_key } }}},[_vm._v(_vm._s(order.public_key))])],1)]),_vm._v(" "),_c('div',{staticClass:"col-sm-3"},[_vm._v(_vm._s(order.status))]),_vm._v(" "),_c('div',{staticClass:"col-sm-3"},[_vm._v(_vm._s(order.price))])])])})],2)],1)])]),_vm._v(" "),_c('spinner',{attrs:{"visible":_vm.isSpinnerVisible}})],1)}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"container mt-5"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-sm-12"},[_c('h1',[_vm._v("My cabinet")]),_vm._v(" "),_c('div',{staticClass:"row mt-5"},[_c('div',{staticClass:"col-sm-6"},[_c('h2',[_vm._v("My profile")]),_vm._v(" "),_c('user-summary',{staticClass:"mt-3",attrs:{"user":_vm.user}}),_vm._v(" "),_c('button',{staticClass:"btn btn-lg btn-block btn-primary mt-3",on:{"click":function($event){$event.preventDefault();return _vm.issue($event)}}},[_vm._v("Issue funds")])],1),_vm._v(" "),_c('div',{staticClass:"col-sm-6"},[_c('h2',[_vm._v("Incubator")]),_vm._v(" "),_c('form',{staticClass:"mt-3",on:{"submit":function($event){$event.preventDefault();return _vm.makeDetail($event)}}},[_c('div',{staticClass:"form-group"},[_c('label',{staticClass:"control-label"},[_vm._v("Serial:")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.serial),expression:"serial"}],staticClass:"form-control",attrs:{"type":"text","placeholder":"Serial","maxlength":"260","required":""},domProps:{"value":(_vm.serial)},on:{"input":function($event){if($event.target.composing){ return; }_vm.serial=$event.target.value}}})]),_vm._v(" "),_c('div',{staticClass:"form-group"},[_c('label',{staticClass:"control-label"},[_vm._v("Kind:")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.kind),expression:"kind"}],staticClass:"form-control",attrs:{"type":"text","placeholder":"Test Kind","maxlength":"260","required":""},domProps:{"value":(_vm.kind)},on:{"input":function($event){if($event.target.composing){ return; }_vm.kind=$event.target.value}}})]),_vm._v(" "),_c('button',{staticClass:"btn btn-lg btn-block btn-primary",attrs:{"type":"submit"}},[_vm._v("Incubate")])])])]),_vm._v(" "),_c('h2',{staticClass:"mt-5"},[_vm._v("My owls")]),_vm._v(" "),_c('owl-list',{attrs:{"owls":_vm.owls}}),_vm._v(" "),_c('h2',{staticClass:"mt-5"},[_vm._v("My orders")]),_vm._v(" "),_c('ul',{staticClass:"list-group mt-3"},[_vm._m(0),_vm._v(" "),_vm._l((_vm.orders),function(order){return _c('li',{staticClass:"list-group-item"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-sm-3"},[_c('code',[_c('router-link',{staticClass:"break-word",attrs:{"to":{ name: 'owl', params: { hash: order.owl_id } }}},[_vm._v(_vm._s(order.owl_id))])],1)]),_vm._v(" "),_c('div',{staticClass:"col-sm-3"},[_c('code',[_c('router-link',{staticClass:"break-word",attrs:{"to":{ name: 'user', params: { publicKey: order.public_key } }}},[_vm._v(_vm._s(order.public_key))])],1)]),_vm._v(" "),_c('div',{staticClass:"col-sm-3"},[_vm._v(_vm._s(order.status))]),_vm._v(" "),_c('div',{staticClass:"col-sm-3"},[_vm._v(_vm._s(order.price))])])])})],2)],1)])]),_vm._v(" "),_c('spinner',{attrs:{"visible":_vm.isSpinnerVisible}})],1)}
 __vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('li',{staticClass:"list-group-item font-weight-bold"},[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-sm-3"},[_vm._v("Owl")]),_vm._v(" "),_c('div',{staticClass:"col-sm-3"},[_vm._v("User")]),_vm._v(" "),_c('div',{staticClass:"col-sm-3"},[_vm._v("Status")]),_vm._v(" "),_c('div',{staticClass:"col-sm-3"},[_vm._v("Price")])])])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -36924,6 +36929,101 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
 })()}
 },{"../components/OwlList.vue":73,"../components/Spinner.vue":74,"vue":64,"vue-hot-reload-api":62}],84:[function(require,module,exports){
 ;(function(){
+"use strict";
+
+var _Spinner = require("../components/Spinner.vue");
+
+var _Spinner2 = _interopRequireDefault(_Spinner);
+
+var _Tab = require("../components/Tab.vue");
+
+var _Tab2 = _interopRequireDefault(_Tab);
+
+var _Tabs = require("../components/Tabs.vue");
+
+var _Tabs2 = _interopRequireDefault(_Tabs);
+
+var _Modal = require("../components/Modal.vue");
+
+var _Modal2 = _interopRequireDefault(_Modal);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+module.exports = {
+  components: {
+    Tab: _Tab2.default,
+    Tabs: _Tabs2.default,
+    Modal: _Modal2.default,
+    Spinner: _Spinner2.default
+  },
+  data: function data() {
+    return {
+      keyPair: {},
+      isModalVisible: false,
+      isSpinnerVisible: false
+    };
+  },
+
+  methods: {
+    login: function login() {
+      this.isSpinnerVisible = true;
+
+      this.$store.commit("login", {
+        publicKey: this.secretKey.substr(64),
+        secretKey: this.secretKey
+      });
+
+      this.$nextTick(function () {
+        this.$router.push({ name: "dashboard" });
+      });
+    },
+    register: async function register() {
+      this.isSpinnerVisible = true;
+
+      try {
+        var keyPair = await this.$blockchain.createUser(this.name, this.role);
+        this.name = "";
+        this.role = "";
+        this.keyPair = keyPair;
+        this.isSpinnerVisible = false;
+        this.isModalVisible = true;
+      } catch (error) {
+        this.isSpinnerVisible = false;
+        this.$notify("error", error.toString());
+      }
+    },
+    closeModal: function closeModal() {
+      this.isModalVisible = false;
+    },
+    proceed: function proceed() {
+      this.isModalVisible = false;
+
+      this.$store.commit("login", this.keyPair);
+
+      this.$nextTick(function () {
+        this.$router.push({ name: "dashboard" });
+      });
+    }
+  }
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"limiter"},[_c('div',{staticClass:"container-login100"},[_c('div',{staticClass:"wrap-login100",staticStyle:{"text-align":"center","position":"relative"}},[_vm._m(0),_vm._v(" "),_c('br'),_vm._v(" "),_vm._m(1),_vm._v(" "),_c('form',{staticClass:"login100-form validate-form",on:{"submit":function($event){$event.preventDefault();return _vm.register($event)}}},[_c('span',{staticClass:"login100-form-title"},[_vm._v("\n\t\t\t\t\t\tRegister staff\n\t\t\t\t\t")]),_vm._v(" "),_c('div',{staticClass:"wrap-input100 validate-input"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.name),expression:"name"}],staticClass:"input100",attrs:{"type":"text","name":"name","placeholder":"Name"},domProps:{"value":(_vm.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.name=$event.target.value}}}),_vm._v(" "),_c('span',{staticClass:"focus-input100"}),_vm._v(" "),_vm._m(2)]),_vm._v(" "),_c('div',{staticClass:"wrap-input100 validate-input"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.role),expression:"role"}],staticClass:"input100",attrs:{"type":"text","name":"role","placeholder":"Role"},domProps:{"value":(_vm.role)},on:{"input":function($event){if($event.target.composing){ return; }_vm.role=$event.target.value}}}),_vm._v(" "),_c('span',{staticClass:"focus-input100"}),_vm._v(" "),_vm._m(3)]),_vm._v(" "),_vm._m(4)])])])]),_vm._v(" "),_c('spinner',{attrs:{"visible":_vm.isSpinnerVisible}}),_vm._v(" "),_c('modal',{attrs:{"visible":_vm.isModalVisible,"title":"Successful registration","action-btn":"Send to Email"},on:{"close":_vm.closeModal,"submit":_vm.proceed}},[_c('div',{staticClass:"alert alert-warning",attrs:{"role":"alert"}},[_vm._v("Save the secret key in a safe place. You will need it to log in to the demo next time.")]),_vm._v(" "),_c('div',{staticClass:"form-group"},[_c('label',[_vm._v("Secret key:")]),_vm._v(" "),_c('div',[_c('code',[_vm._v(_vm._s(_vm.keyPair.secretKey))])])])])],1)}
+__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"width":"80%","display":"block","position":"absolute","top":"80px","z-index":"400","margin-top":"-20px"}},[_c('img',{staticStyle:{"width":"400px","max-width":"100%"},attrs:{"src":"images/logo.png","alt":"","srcset":""}})])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"login100-pic js-tilt",attrs:{"data-tilt":""}},[_c('img',{attrs:{"src":"images/register.png","alt":"IMG"}})])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{staticClass:"symbol-input100"},[_c('i',{staticClass:"fa fa-user-circle",attrs:{"aria-hidden":"true"}})])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{staticClass:"symbol-input100"},[_c('i',{staticClass:"fa fa-id-card-o ",attrs:{"aria-hidden":"true"}})])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container-login100-form-btn"},[_c('button',{staticClass:"login100-form-btn"},[_vm._v("\n\t\t\t\t\t\t\tRegister\n\t\t\t\t\t\t")])])}]
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-24fde85e", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-24fde85e", __vue__options__)
+  }
+})()}
+},{"../components/Modal.vue":70,"../components/Spinner.vue":74,"../components/Tab.vue":75,"../components/Tabs.vue":76,"vue":64,"vue-hot-reload-api":62}],85:[function(require,module,exports){
+;(function(){
 'use strict';
 
 var _Spinner = require('../components/Spinner.vue');
@@ -36985,7 +37085,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-020832a0", __vue__options__)
   }
 })()}
-},{"../components/Spinner.vue":74,"vue":64,"vue-hot-reload-api":62}],85:[function(require,module,exports){
+},{"../components/Spinner.vue":74,"vue":64,"vue-hot-reload-api":62}],86:[function(require,module,exports){
 ;(function(){
 'use strict';
 
@@ -37067,7 +37167,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-1abb200e", __vue__options__)
   }
 })()}
-},{"../components/OwlList.vue":73,"../components/Spinner.vue":74,"../components/UserSummary.vue":77,"vue":64,"vue-hot-reload-api":62}],86:[function(require,module,exports){
+},{"../components/OwlList.vue":73,"../components/Spinner.vue":74,"../components/UserSummary.vue":77,"vue":64,"vue-hot-reload-api":62}],87:[function(require,module,exports){
 ;(function(){
 'use strict';
 
@@ -37123,7 +37223,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-6557304a", __vue__options__)
   }
 })()}
-},{"../components/Spinner.vue":74,"vue":64,"vue-hot-reload-api":62}],87:[function(require,module,exports){
+},{"../components/Spinner.vue":74,"vue":64,"vue-hot-reload-api":62}],88:[function(require,module,exports){
 "use strict";
 
 var _exonumClient = require("exonum-client");
@@ -37146,7 +37246,7 @@ var NETWORK_ID = 0;
 var PROTOCOL_VERSION = 0;
 var SERVICE_ID = 521;
 var CREATE_USER_TX_ID = 0;
-var MAKE_OWL_TX_ID = 1;
+var MAKE_DETAIL = 1;
 var ISSUE_TX_ID = 2;
 var CREATE_ORDER_TX_ID = 3;
 var ACCEPT_ORDER_TX_ID = 4;
@@ -37182,6 +37282,7 @@ function waitForAcceptance(response) {
   var attempt = ATTEMPTS;
 
   if (response.data.debug) {
+    console.log();
     throw new Error(response.data.description);
   }
 
@@ -37237,35 +37338,34 @@ module.exports = {
         });
       },
 
-      makeOwl: function makeOwl(keyPair, name, father, mother) {
-        // Describe transaction to make new owl
-        var TxMakeOwl = Exonum.newMessage({
+      makeDetail: function makeDetail(keyPair, role, serial, kind) {
+        // Делаем действие с деталью
+        var TxmakeDetail = Exonum.newMessage({
           network_id: NETWORK_ID,
           protocol_version: PROTOCOL_VERSION,
           service_id: SERVICE_ID,
-          message_id: MAKE_OWL_TX_ID,
-          fields: [{ name: "public_key", type: Exonum.PublicKey }, { name: "name", type: Exonum.String }, { name: "father_id", type: Exonum.Hash }, { name: "mother_id", type: Exonum.Hash }, { name: "seed", type: SystemTime }]
+          message_id: MAKE_DETAIL,
+          fields: [{ name: "public_key", type: Exonum.PublicKey }, { name: "kind", type: Exonum.String }, { name: "role", type: Exonum.String }, { name: "serial_number", type: Exonum.String }, { name: "seed", type: SystemTime }]
         });
 
         // Transaction data
         var data = {
           public_key: keyPair.publicKey,
-          name: name,
+          kind: kind,
           role: role,
-          father_id: father,
-          mother_id: mother,
+          serial_number: serial,
           seed: getSystemTime()
         };
 
         // Sign transaction with user's secret key
-        var signature = TxMakeOwl.sign(keyPair.secretKey, data);
+        var signature = TxmakeDetail.sign(keyPair.secretKey, data);
 
         // Send transaction into blockchain
         return _axios2.default.post("/api/services/cryptoowls/v1/transaction", {
           network_id: NETWORK_ID,
           protocol_version: PROTOCOL_VERSION,
           service_id: SERVICE_ID,
-          message_id: MAKE_OWL_TX_ID,
+          message_id: MAKE_DETAIL,
           body: data,
           signature: signature
         }).then(waitForAcceptance);
@@ -37371,8 +37471,8 @@ module.exports = {
 
       getUser: function getUser(publicKey) {
         return _axios2.default.get("/api/services/cryptoowls/v1/user/" + publicKey).then(function (response) {
-          if (response.data === "User not found") {
-            throw new Error(response.data);
+          if (response.data.error) {
+            throw new Error("User not found");
           }
           return response.data;
         });
@@ -37470,7 +37570,7 @@ module.exports = {
   }
 };
 
-},{"axios":1,"big-integer":27,"exonum-client":36}],88:[function(require,module,exports){
+},{"axios":1,"big-integer":27,"exonum-client":36}],89:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37503,7 +37603,7 @@ exports.default = {
   }
 };
 
-},{"big-integer":27,"moment":48}],89:[function(require,module,exports){
+},{"big-integer":27,"moment":48}],90:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37534,7 +37634,7 @@ exports.default = {
   }
 };
 
-},{"noty":49}],90:[function(require,module,exports){
+},{"noty":49}],91:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37553,54 +37653,58 @@ exports.default = {
   }
 };
 
-},{"svg.js":60}],91:[function(require,module,exports){
-'use strict';
+},{"svg.js":60}],92:[function(require,module,exports){
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _vue = require('vue');
+var _vue = require("vue");
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _vueRouter = require('vue-router');
+var _vueRouter = require("vue-router");
 
 var _vueRouter2 = _interopRequireDefault(_vueRouter);
 
-var _Auth = require('../pages/Auth.vue');
+var _Auth = require("../pages/Auth.vue");
 
 var _Auth2 = _interopRequireDefault(_Auth);
 
-var _Dashboard = require('../pages/Dashboard.vue');
+var _Register = require("../pages/Register.vue");
+
+var _Register2 = _interopRequireDefault(_Register);
+
+var _Dashboard = require("../pages/Dashboard.vue");
 
 var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-var _Users = require('../pages/Users.vue');
+var _Users = require("../pages/Users.vue");
 
 var _Users2 = _interopRequireDefault(_Users);
 
-var _User = require('../pages/User.vue');
+var _User = require("../pages/User.vue");
 
 var _User2 = _interopRequireDefault(_User);
 
-var _Owls = require('../pages/Owls.vue');
+var _Owls = require("../pages/Owls.vue");
 
 var _Owls2 = _interopRequireDefault(_Owls);
 
-var _Owl = require('../pages/Owl.vue');
+var _Owl = require("../pages/Owl.vue");
 
 var _Owl2 = _interopRequireDefault(_Owl);
 
-var _Blockchain = require('../pages/Blockchain.vue');
+var _Blockchain = require("../pages/Blockchain.vue");
 
 var _Blockchain2 = _interopRequireDefault(_Blockchain);
 
-var _Block = require('../pages/Block.vue');
+var _Block = require("../pages/Block.vue");
 
 var _Block2 = _interopRequireDefault(_Block);
 
-var _Transaction = require('../pages/Transaction.vue');
+var _Transaction = require("../pages/Transaction.vue");
 
 var _Transaction2 = _interopRequireDefault(_Transaction);
 
@@ -37610,49 +37714,53 @@ _vue2.default.use(_vueRouter2.default);
 
 exports.default = new _vueRouter2.default({
   routes: [{
-    path: '/',
-    name: 'auth',
+    path: "/",
+    name: "auth",
     component: _Auth2.default
   }, {
-    path: '/dashboard',
-    name: 'dashboard',
+    path: "/register",
+    name: "register",
+    component: _Register2.default
+  }, {
+    path: "/dashboard",
+    name: "dashboard",
     component: _Dashboard2.default
   }, {
-    path: '/users',
-    name: 'users',
+    path: "/users",
+    name: "users",
     component: _Users2.default
   }, {
-    path: '/user/:publicKey',
-    name: 'user',
+    path: "/user/:publicKey",
+    name: "user",
     component: _User2.default,
     props: true
   }, {
-    path: '/owls',
-    name: 'owls',
+    path: "/owls",
+    name: "owls",
     component: _Owls2.default
   }, {
-    path: '/owl/:hash',
-    name: 'owl',
+    path: "/owl/:hash",
+    name: "owl",
     component: _Owl2.default,
     props: true
   }, {
-    path: '/blockchain',
-    name: 'blockchain',
+    path: "/blockchain",
+    name: "blockchain",
     component: _Blockchain2.default
   }, {
-    path: '/block/:height',
-    name: 'block',
+    path: "/block/:height",
+    name: "block",
     component: _Block2.default,
     props: true
   }, {
-    path: '/transaction/:hash',
-    name: 'transaction',
+    path: "/transaction/:hash",
+    name: "transaction",
     component: _Transaction2.default,
     props: true
   }]
 });
 
-},{"../pages/Auth.vue":78,"../pages/Block.vue":79,"../pages/Blockchain.vue":80,"../pages/Dashboard.vue":81,"../pages/Owl.vue":82,"../pages/Owls.vue":83,"../pages/Transaction.vue":84,"../pages/User.vue":85,"../pages/Users.vue":86,"vue":64,"vue-router":63}],92:[function(require,module,exports){
+},{"../pages/Auth.vue":78,"../pages/Block.vue":79,"../pages/Blockchain.vue":80,"../pages/Dashboard.vue":81,"../pages/Owl.vue":82,"../pages/Owls.vue":83,"../pages/Register.vue":84,"../pages/Transaction.vue":85,"../pages/User.vue":86,"../pages/Users.vue":87,"vue":64,"vue-router":63}],93:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

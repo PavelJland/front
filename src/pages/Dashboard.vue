@@ -13,23 +13,22 @@
             </div>
             <div class="col-sm-6">
               <h2>Incubator</h2>
-              <form class="mt-3" @submit.prevent="makeOwl">
+              <form class="mt-3" @submit.prevent="makeDetail">
                 <div class="form-group">
-                  <label class="control-label">Name:</label>
-                  <input v-model="name" type="text" class="form-control" placeholder="Enter name" maxlength="260" required>
+                  <label class="control-label">Serial:</label>
+                  <input v-model="serial" type="text" class="form-control" placeholder="Serial" maxlength="260" required>
                 </div>
                 <div class="form-group">
+                  <label class="control-label">Kind:</label>
+                  <input v-model="kind" type="text" class="form-control" placeholder="Test Kind" maxlength="260" required>
+                </div>
+                <!-- <div class="form-group">
                   <label class="control-label">Father:</label>
                   <select v-model="father" class="form-control" required>
                     <option v-for="owl in owls" class="form-control" :value="$blockchain.getOwlHash(owl.owl)">{{ owl.owl.name }}</option>
                   </select>
-                </div>
-                <div class="form-group">
-                  <label class="control-label">Mother:</label>
-                  <select v-model="mother" class="form-control" required>
-                    <option v-for="owl in owls" class="form-control" :value="$blockchain.getOwlHash(owl.owl)">{{ owl.owl.name }}</option>
-                  </select>
-                </div>
+                </div> -->
+
                 <button type="submit" class="btn btn-lg btn-block btn-primary">Incubate</button>
               </form>
             </div>
@@ -159,15 +158,15 @@ module.exports = {
       }
     },
 
-    async makeOwl() {
+    async makeDetail() {
       this.isSpinnerVisible = true;
 
       try {
-        await this.$blockchain.makeOwl(
+        await this.$blockchain.makeDetail(
           this.keyPair,
-          this.name,
-          this.mother,
-          this.father
+          this.user.role,
+          this.serial,
+          this.kind
         );
         this.isSpinnerVisible = false;
         this.$notify("success", "Transaction accepted");
